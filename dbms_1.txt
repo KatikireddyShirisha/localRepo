@@ -1,0 +1,158 @@
+CREATE TABLE SAMPLE(
+    ID NUMBER(3) PRIMARY KEY,
+    SNAME VARCHAR2(20) NOT NULL,
+    ADDRESS VARCHAR2(50),
+    PH NUMBER(10) CHECK (LENGTH(PH)=10)
+);
+desc sample
+
+
+CREATE TABLE NEWSAMPLE(
+    ID NUMBER(3),
+    SNAME VARCHAR2(20) NOT NULL,
+    ADDRESS VARCHAR2(50),
+    PH NUMBER(10),
+    CONSTRAINTS PK_ID PRIMARY KEY(ID),
+    CONSTRAINTS CK_PH CHECK(LENGTH(PH)=10)
+);
+DESC NEWSAMPLE
+
+
+CREATE TABLE DUMMY AS SELECT * FROM NEWSAMPLE;
+DESC DUMMY
+
+alter table newsample add city varchar2(25);
+desc newsample
+
+alter table newsample modify city varchar2(25) not null;
+desc newsample
+
+rename newsample to emp;
+desc emp
+
+alter table emp rename  column PH to mobile;
+desc emp
+
+drop table dummy
+desc dummy
+
+insert into emp values(101,'SSS','123,jhbs',1234567890,'bng')
+insert into emp values(102,'aaa','123,jhbs',1234567890,'bng')
+insert into emp values(103,'bbb','123,jhbs',1234567890,'bng')
+
+SELECT * FROM EMP;
+
+insert into emp(id,sname,city) values(104,'ddd','bang')
+
+update emp set address='456,raja nagar'
+
+update emp set address='420,kaktiya nagar' where id=101
+
+
+update emp set mobile=6789452310 where id=104
+
+delete emp where id=104
+
+SAVEPOINT s1//no use
+
+select * from emp;
+
+select id,sname from emp;
+
+select sname as "Student Name",city as "City" 
+from emp
+where id=102
+
+select sname as "Student Name",city as "City" 
+from emp
+where sname='BBB';
+
+select sname as "Student Name",city as "City" 
+from emp
+where id=102 or id=103
+
+select sname as "Student Name",city as "City" 
+from emp
+where id=103 and sname='bbb';
+
+select sname as "Student Name",city as "City" 
+from emp
+where id in(102,103)
+
+select sname as "Student Name",city as "City" 
+from emp
+where id not in(102,103)
+
+select sname as "Student Name",city as "City" 
+from emp
+where sname in('SSS','bbb')
+
+select sname as "Student Name",city as "City" 
+from emp
+where sname not in('SSS','bbb')
+
+
+
+//add another id=104 row so u can see and use BETWEEN
+select sname as "Student Name",city as "City" 
+from emp
+where id between 101 and 103
+
+
+select sname as "Student Name",city as "City" 
+from emp
+where sname between 'SSS' and 'aaa';
+
+select sname as "Student Name",city as "City" 
+from emp
+where sname like 'a%';
+
+select sname as "Student Name",city as "City" 
+from emp
+where sname like 'a_';
+
+//add another row 104 no address then its gonna appear in this query
+select sname as "Student Name",city as "City" 
+from emp
+where address is null;
+
+select sname as "Student Name",city as "City" 
+from emp
+where address is null;
+
+
+
+
+
+8/9/2025
+
+
+table be like
+101 102 103 104
+AAA BBB CCC DDD
+bang chn hyd bng
+
+
+
+select e.ename as "Emp Name",d.dept...	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
